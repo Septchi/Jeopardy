@@ -2,6 +2,8 @@
     "questions":[
         {"category": "Bio", "body":"How are you", "answer":"1"}, 
         {"category": "Bio", "body":"Hello Nikki", "answer":"1"}, 
+        {"category": "Bio", "body":"What the sigma", "answer":"1"}, 
+        {"category": "Bio", "body":"Hello Carlos", "answer":"1"}, 
         {"category": "Bio", "body":"How are you", "answer":"1"}, 
         {"category": "Bio", "body":"How are you", "answer":"1"}, 
         {"category": "Bio", "body":"How are you", "answer":"1"},
