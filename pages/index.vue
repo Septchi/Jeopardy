@@ -20,12 +20,18 @@
     import json from './data/questions.json'
     export default {
         data() {
+            var temp = [];
+            var columns = 5;
+            for(let i = 0; i < columns*columns; i++){
+                temp.push(json.questions[(i%columns)*columns + Math.floor(i/columns)]);
+                
+            }
             return {
                 asking: false,
                 current: 0,
                 categories: ["Biology & Chem", "Algebra & Combinatorics", "History of DOST", "Earth Science & Physcis", "Geometry & Trigonometry"],
                 schools: ["Team 1", "Team 2", "Team 3"],
-                questions: json.questions,
+                questions: temp,
             }
         },
         provide(){
