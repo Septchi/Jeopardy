@@ -6,7 +6,7 @@
             <School v-for="name in schools" :name="name"/>
         </div>
         <div id="grid">
-            <h1 v-for="name in categories" class="text-2xl text-center text-white">{{name}}</h1>
+            <h1 v-for="name in categories" class="text-2xl text-center text-middle text-white">{{name}}</h1>
             <Block v-for="(obj, n) in questions" :point="Math.ceil((n+1)/5)" :answer="obj.answer"
                    @click="setCurrent(n)"/>
         </div>
@@ -30,7 +30,7 @@
                 asking: false,
                 current: 0,
                 categories: ["Biology & Chemistry", "Algebra & Combinatorics", "History of DOST", "Earth Science & Physics", "Geometry & Trigonometry"],
-                schools: ["Team 1", "Team 2", "Team 3", "Team 4"],
+                schools: ["Team 1", "Team 2", "Team 3", "Team 4", "Team 5", "Team 6", "Team 7"],
                 questions: temp,
             }
         },
@@ -63,6 +63,6 @@ body {
 #players {
     display: flex;
     flex-direction:  column;
-    width: 15%;
+    width: 10%;
 } 
 </style>
