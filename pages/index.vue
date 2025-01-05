@@ -29,8 +29,8 @@
             return {
                 asking: false,
                 current: 0,
-                categories: ["Biology & Chem", "Algebra & Combinatorics", "History of DOST", "Earth Science & Physcis", "Geometry & Trigonometry"],
-                schools: ["Team 1", "Team 2", "Team 3"],
+                categories: ["Biology & Chemistry", "Algebra & Combinatorics", "History of DOST", "Earth Science & Physics", "Geometry & Trigonometry"],
+                schools: ["Team 1", "Team 2", "Team 3", "Team 4"],
                 questions: temp,
             }
         },
