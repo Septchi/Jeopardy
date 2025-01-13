@@ -1,13 +1,13 @@
 <template>
-    <Question v-if="asking" :body="questions[current].body" :type="questions[current].category"/>
+    <Question v-if="asking" :question="questions[current]"/>
     <h1 class="text-6xl text-center mb-4 font-serif">Jeopardy</h1>
     <div class="flex justify-between mx-8">
         <div id="players">
             <School v-for="name in schools" :name="name"/>
         </div>
-        <div id="grid">
-            <h1 v-for="name in categories" class="text-2xl text-center text-white">{{name}}</h1>
-            <Block v-for="(obj, n) in questions" :point="Math.ceil((n+1)/5)" :answer="obj.answer"
+        <div id="grid" class="border-black border-4">
+            <h1 v-for="name in categories" class="border-black border-2 text-2xl text-center text-white">{{name}}</h1>
+            <Block v-for="(obj, n) in questions" :point="points[Math.floor(n/5)]" :answer="obj.answer"
                    @click="setCurrent(n)"/>
         </div>
     </div>
@@ -22,14 +22,16 @@
         data() {
             var temp = [];
             var columns = 5;
-            for(let i = 0; i < columns*columns; i++){
-                temp.push(json.questions[(i%columns)*columns + Math.floor(i/columns)]);
+            var rows = 10
+            for(let i = 0; i < columns*rows; i++){
+                temp.push(json.questions[(i%columns)*rows + Math.floor(i/columns)]);
                 
             }
             return {
                 asking: false,
                 current: 0,
                 categories: ["Biology & Chemistry", "Algebra & Combinatorics", "History of DOST", "Earth Science & Physics", "Geometry & Trigonometry"],
+                points:[100, 100, 200, 200, 200, 200, 200, 600, 300, 1000],
                 schools: ["Team 1", "Team 2", "Team 3", "Team 4"],
                 questions: temp,
             }
@@ -58,7 +60,7 @@ body {
     display: inline-grid;
     width: 75%;
     grid-template-columns: repeat(5, 1fr);
-    gap: 8px;
+    /*gap: 8px;*/
 } 
 #players {
     display: flex;

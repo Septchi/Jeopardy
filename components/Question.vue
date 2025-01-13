@@ -2,21 +2,33 @@
     <div id="popup">
         <div id="inner" @click="toggle">
             <h1 class="text-xl font-semibold text-center">{{type}}</h1>
-            <h1 class="m-4">{{body}}</h1>
+            <h1 class="m-4 h-4/6">{{!show ? body : answer}}</h1>
+            <buton @click.stop="show = true" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-blue-300 font-medium rounded-lg
+                text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 
+                mx-4">Show Answer</buton>
         </div>
     </div>
 </template>
 
 <script>
     export default{
+        data() {
+            return {
+                show: false
+            }
+        },
         props: {
-            body: {
-                type: String,
-                default: "Warap"
+            question: Object
+        },
+        computed: {
+            body(){
+                return this.question.body
             },
-            type: {
-                type: String,
-                default: "Meth"
+            type(){
+                return this.question.category
+            },
+            answer(){
+                return this.question.answer
             }
         },
         inject: ['toggle'],

@@ -1,6 +1,6 @@
 <template>
-    <div id="tile" class="border-black border-4 rounded-2xl" @click="this.hidden = !this.hidden">
-        <p :class="{'text-center m-auto':true, 'text-5xl':hidden, 'text-lg':!hidden}">{{text}}</p>
+    <div id="tile" class="border-black border-2" @click="this.hidden = !this.hidden">
+        <p :class="{'text-center m-auto text-[#FFFF00] shadow-inner':true, 'text-2xl':hidden, 'text-lg':!hidden}">{{text}}</p>
     </div>
 </template>
 
@@ -22,7 +22,7 @@
         },
         computed: {
             text(){
-                return this.hidden ? this.point : this.answer
+                return this.hidden ? this.point : ""
             }
         },
     }
@@ -30,8 +30,8 @@
 
 <style scoped>
 #tile {
-    background-color: salmon;
-    height: 75px;
+    background-color: cornflowerblue;
+    height: 45px;
     width: auto;
     display: flex;
 }
